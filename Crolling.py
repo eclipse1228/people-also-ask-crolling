@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import random
 
 driver = webdriver.Chrome()
 driver.get('https://www.google.com/search?q= INPUTYOUR_KEY_WORDS ')
@@ -17,7 +18,7 @@ for i in range(clicks):
         try:
             # Click the question
             paa_questions[i].click()
-            time.sleep(2)  # Wait for the content to load
+            time.sleep(random.uniform(2, 5))  # Wait for the content randomly
 
             # Fetch the list of questions again to get the updated question text
             updated_questions = driver.find_elements(By.CLASS_NAME, "CSkcDe")
